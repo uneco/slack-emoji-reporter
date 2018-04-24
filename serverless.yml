@@ -1,0 +1,37 @@
+service:
+  name: slack-emoji-channel
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+
+custom: ${file(./config.yml)}
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  environment: ${self:custom.environment}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:ListBucket
+      Resource: arn:aws:s3:::${self:custom.environment.DATA_BUCKET}
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+        - s3:PutObject
+        - s3:DeleteObject
+      Resource: arn:aws:s3:::${self:custom.environment.DATA_BUCKET}/*
+
+functions:
+  checkAndReport:
+    handler: handler.checkAndReport
+    events:
+      - schedule: rate(15 minutes)
+
+resources:
+  Resources:
+    DataBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.environment.DATA_BUCKET}

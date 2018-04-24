@@ -1,0 +1,19 @@
+{
+  "name": "slack-emoji-reporter",
+  "version": "1.0.0",
+  "main": "handler.ts",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.1",
+    "@types/node": "^8.0.57",
+    "@types/slack-node": "^0.1.2",
+    "aws-sdk": "^2.228.1",
+    "serverless-webpack": "^4.0.0",
+    "ts-loader": "^2.3.7",
+    "typescript": "^2.5.2",
+    "webpack": "^3.6.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "slack-node": "^0.1.8"
+  }
+}

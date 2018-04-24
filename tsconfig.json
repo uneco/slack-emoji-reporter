@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "lib": ["es6"],
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "strict": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "target": "es6"
+  },
+  "compileOnSave": true,
+  "include": [
+    "handler.ts"
+  ]
+}
